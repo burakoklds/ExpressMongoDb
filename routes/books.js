@@ -28,7 +28,7 @@ router.post('/new', function(req, res, next) {
   });
 });
 
-
+// category olanları getirir
 router.get('/search' , (req, res) => {
   Book.find({ category: { $exists: true } } , (err , data) => {
     res.json(data);
@@ -159,6 +159,7 @@ router.get('/aggregateProject', (req , res) => {
   });
 });
 
+//Books daki UserId ile userdaki id'lerle birbirine bağlar
 router.get('/aggregatelookupFor', (req , res) => {
     Book.aggregate([
       {
